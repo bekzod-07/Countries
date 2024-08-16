@@ -1,0 +1,170 @@
+/* Base styles */
+.SearchFilter {
+    background: #FAFAFA;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.SearchFilter__item {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.SearchFilter__item__input {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+}
+
+.SearchFilter__item__input input {
+    width: 100%;
+    height: 52px;
+    border: none;
+    outline: none;
+    padding-left: 45px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #333; /* Color of the text in light mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.SearchFilter__item__input .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888; /* Icon color in light mode */
+}
+
+.SearchFilter__item__option select {
+    height: 52px;
+    width: 200px;
+    max-width: 200px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding-left: 10px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #333; /* Text color in light mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEwIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTSAxIDQgTCA1IDcgTCA5IDQiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.countries {
+    margin-top: 48px;
+}
+
+.countries__item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* This ensures there are exactly 4 columns */
+    gap: 20px;
+    justify-items: center;
+}
+
+.countries__item__info {
+    width: 100%; /* Make sure the item takes up full space within the grid cell */
+    background-color: #fff;
+    box-shadow: 0 0 7px 2px #00000008;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.countries__item__info__img img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.countries__item__info__text {
+    padding: 16px;
+}
+
+.countries__item__info__text h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.countries__item__info__text p {
+    margin: 4px 0;
+}
+
+/* Dark mode styles */
+.SearchFilter.dark {
+    background: #333;
+    color: #fff;
+}
+
+.SearchFilter.dark .SearchFilter__item__input input {
+    background-color: #555;
+    color: #fff; /* Color of the text in dark mode */
+}
+
+.SearchFilter.dark .SearchFilter__item__input input::placeholder {
+    color: #aaa; /* Placeholder color in dark mode */
+}
+
+.SearchFilter.dark .SearchFilter__item__input .search-icon {
+    color: #aaa; /* Icon color in dark mode */
+}
+
+.SearchFilter.dark .SearchFilter__item__option select {
+    background-color: #555;
+    color: #fff; /* Text color in dark mode */
+}
+
+.SearchFilter.dark .countries__item__info {
+    background-color: #444;
+}
+
+.SearchFilter.dark .countries__item__info__text h3,
+.SearchFilter.dark .countries__item__info__text p {
+    color: #ffffff;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .SearchFilter__item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .SearchFilter__item__input,
+    .SearchFilter__item__option {
+        width: 100%;
+        max-width: none; /* Remove max-width constraints */
+        margin-bottom: 20px;
+    }
+
+    .countries__item {
+        grid-template-columns: repeat(2, 1fr); /* Stack items in 2 columns */
+    }
+}
+
+@media (max-width: 480px) {
+    .SearchFilter__item__input input {
+        font-size: 14px; /* Smaller font size for input */
+        height: 40px; /* Smaller height for input */
+    }
+
+    .SearchFilter__item__option select {
+        font-size: 14px; /* Smaller font size for select */
+        height: 40px; /* Smaller height for select */
+    }
+
+    .countries__item {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .countries__item__info__img img {
+        height: 120px; /* Adjust image height */
+    }
+}
